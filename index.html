@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="style.css">
+	<title>ページタイトル</title>
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+	</head>
+	<body>
+
+	<!-- Menu elements-->
+	<div class="menu">
+		<nav>
+			<ul class="header">
+				<li class="link hover-Uline"><a href="/index.html">HOME</a></li>
+				<li class="link hover-Uline"><a href="/profile.html">PROFILE</a></li>
+				<li class="link hover-Uline"><a href="/about.html">WORKS</a></li>
+			</ul>
+		</nav>	
+	</div>
+	<div class="menu__toggler"><span></span></div>
+	<!-- Basic elements-->
+	<a class="twitter" title="Follow Yago Estévez on Twitter" alt="Follow Yago Estévez on Twitter" href="https://twitter.com/yagoestevez/" target="_blank" rel="noopener noreferrer">
+		<svg viewBox="0 0 512 512">
+			<path fill="#fafafa" d="M459.4 151.7c.3 4.6.3 9.1.3 13.7 0 138.7-105.6 298.5-298.6 298.5A296.5 296.5 0 0 1 0 417a217 217 0 0 0 25.3 1.2c49 0 94.3-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8a111 111 0 0 0 47.4-2 105 105 0 0 1-84.1-103v-1.2c14 7.8 30.2 12.6 47.4 13.3A104.9 104.9 0 0 1 35.7 67.2a298.3 298.3 0 0 0 216.4 109.9 104.9 104.9 0 0 1 179-95.8 206.6 206.6 0 0 0 66.6-25.4 104.7 104.7 0 0 1-46.1 57.8c21-2.3 41.6-8.1 60.4-16.2a225.6 225.6 0 0 1-52.6 54.2z">         </path>
+  </svg></a>
+
+		<section>
+<div id="layer">
+  <div data-depth="0.1" class="layer layer1"><img src="/assets/images/photo_2_c.png" alt=""></div>
+  <div data-depth="0.4" class="layer layer2"><img src="/assets/images/photo_2_a.png" alt=""></div>
+  <div data-depth="0.8" class="layer layer3"><h1 id="title">TAKAzi</h1></div>
+	<div data-depth="0.8" class="layer layer3"><h2 id="title">takagi.com</h2></div>
+		</div>
+		</section>
+		
+<div id="loading">
+    <div id="loading-main"></div>
+</div>
+		
+	<script>
+
+		/*
+		 * 「menu__toggler」クラスの要素がクリックされたら、
+		 * 「menu__toggler」と「menu」に「active」クラスを付けたり消したりする。
+		 * Toggles on and off the 'active' class on the menu
+		 * and the toggler button.
+		 */
+		var toggler = document.querySelector('.menu__toggler')
+		var menu    = document.querySelector('.menu')
+		toggler.addEventListener('click', () => {
+			toggler.classList.toggle('active')
+			menu.classList.toggle('active')
+		})
+		
+var layer = document.getElementById('layer');
+var parallax = new Parallax(layer, {
+  clipRelativeInput: true, //要素の端にカーソルが達したら動きを止める
+  hoverOnly: true, //カーソルが要素の上にある場合のみ有効
+  invertX: true, //X軸の動きを反転。falseにするとマウスと同じ方向に動く
+  invertY: true, //Y軸の動きを反転。falseにするとマウスと同じ方向に動く
+  limitX: false, //X軸の動きを制限する
+  limitY: false, //Y軸の動きを制限する
+  scalarX: 5.0, //X軸の移動速度と範囲を増減
+  scalarY: 5.0, //Y軸の移動速度と範囲を増減
+  frictionX: .1, //X軸のレイヤーの速度。0.00〜1.00の範囲内で指定可能
+  frictionY: .1, //Y軸のレイヤーの速度。0.00〜1.00の範囲内で指定可能
+  originX: .5, //X軸のマウスの初期位置。デフォルトの0.5は画面または要素の中心
+  originY: .8, //Y軸マウスの初期位置。デフォルトの0.5は画面または要素の中心
+});
+
+		// 背景画像を含むすべての画像が正確に読み込みこめたら実行
+$('.wrapper').imagesLoaded( { background: true }, function() {
+        Loadingfade();
+});
+
+// 5秒経ったら、強制的にローディング非表示
+$(function(){
+  setTimeout(Loadingfade, 5000);
+});
+
+//ローディング非表示処理
+function Loadingfade(){
+  // 1秒かけてローディング部分を非表示にし、その後0.8秒かけて背景を非表示
+  $('#loading-main').fadeOut(1000, function(){
+    $('#loading').fadeOut(800);
+  });
+}
+	
+	</script>
+	
+	
+</body>
+</html>

@@ -86,8 +86,11 @@ body{
   .menu {
     width: 100%;
     left: -100%;
-    padding: 50px;
   }
+	.menu__toggler {
+  height: 30vh;
+  width: 30vw;
+}
 }
 
 a {

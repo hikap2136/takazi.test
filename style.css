@@ -87,13 +87,6 @@ body{
     width: 100%;
     left: -100%;
   }
-.menu__toggler span,
-.menu__toggler span::before,
-.menu__toggler span::after {
-  width: 152px;
-  border-radius: 152px;
-}
-
 }
 
 a {

@@ -84,8 +84,8 @@ body{
 }
 @media only screen and (max-width: 650px) {
   .menu {
-    width: 250px;
-    left: -250px;
+    width: 100%;
+    left: -100%;
     padding: 50px;
   }
 }
